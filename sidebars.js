@@ -1,5 +1,6 @@
 module.exports = {
     documentation: [
+        "intro",
         {
             type: 'category',
             label: 'Getting Started',
@@ -8,7 +9,6 @@ module.exports = {
                 'getting-started/dgate-concepts',
                 'getting-started/dgate-server',
                 'getting-started/dgate-cli',
-                'getting-started/dgate-admin-console',
             ]
         },
         {
@@ -22,12 +22,6 @@ module.exports = {
             label: 'DGate CLI',
             collapsed: false,
             items: ['getting-started/dgate-cli']
-        },
-        {
-            type: 'category',
-            label: 'DGate Admin Console',
-            collapsed: false,
-            items: ['getting-started/dgate-admin-console']
         },
     ]
 };

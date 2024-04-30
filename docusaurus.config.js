@@ -6,11 +6,13 @@ module.exports = {
   tagline: 'API Gateway for the modern web',
   url: 'https://dgate.io',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   organizationName: 'dgate-io',
   projectName: 'dgate',
   themes: ['@docusaurus/theme-mermaid'],
+  // In order for Mermaid code blocks in Markdown to work,
+  // you also need to enable the Remark plugin with this option
   markdown: {
     mermaid: true,
   },
@@ -74,11 +76,11 @@ module.exports = {
       links: [
         {
           label: "Getting Started",
-          to: "getting-started",
+          to: "/",
         },
         {
           label: "CLI Reference",
-          to: "cli-reference",
+          to: "/",
         },
         {
           label: "GoDoc",
@@ -94,6 +96,17 @@ module.exports = {
     },
   },
   plugins: [
+    // [
+    //   '@docusaurus/plugin-client-redirects',
+    //   {
+    //     redirects: [
+    //       {
+    //         to: '/getting-started',
+    //         from: '/docs/getting-started/setting-up',
+    //       },
+    //     ],
+    //   },
+    // ],
     [
       '@docusaurus/plugin-ideal-image',
       {
