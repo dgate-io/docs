@@ -3,11 +3,13 @@ id: intro
 title: Introduction
 ---
 
-Introducing DGate - your go-to solution for a modern API Gateway! Born from late night coding sessions in Go, DGate stands apart as a module-based solution. Crafted for speed, efficiency, and seamless usability, it redefines the game. What sets DGate alight is its dynamic module support - empowering you to script modules on the fly, no more server restarts or reloads.
+Introducing DGate - A Function Native API Gateway! DGate stands apart as a modular solution. Crafted for speed, efficiency, and seamless usability, redefining how you think of building your infrastructure. What sets DGate alight is its dynamic module support - empowering you to script modules on the fly, no more server restarts or reloads.
+
+Function Native meaning that the actually functions are stored and executed inside of the gateway proxy server. This allows for a more efficient and faster way to execute functions. No more need for a separate server to run your functions, and introduce more latency and complexy to your architecture.
 
 ## API Gateways
 
-An API Gateway is a server that acts as an entry point for clients or an abstration layer to your services. It is a high-level reverse proxy that sits in front of one or more services. API Gateways usually handle stuff like authentication, retrying, circuit breaker logic, rate limiting, load balancing, and more. Please check out [this article](https://microservices.io/patterns/apigateway.html) for more information.
+An API Gateway is a server that acts as an entry point for clients or an abstraction layer to your services. It is a high-level reverse proxy that sits in front of one or more services. API Gateways usually handle stuff like authentication, retrying, circuit breaker logic, rate limiting, load balancing, and more. Please check out [this article](https://microservices.io/patterns/apigateway.html) for more information.
 
 API Gateways are common in microservice architectures. DGate, for example, can route requests to different services based on the request path, request method, or domain name. This allows you to build services that have intuitive names (i.e. `{service1}.example.com` or `example.com/{service1}`).
 
@@ -19,16 +21,16 @@ Moreover, DGate includes a built-in Admin API, complete with its embedded databa
 
 The Admin API has replication capabilities leveraging the Raft consensus algorithm. This functionality empowers users to deploy multiple DGate instances, ensuring automatic resource replication across all nodes. By harnessing the power of Raft consensus, DGate facilitates the creation of highly available and scalable API Gateway architectures, setting a new standard for reliability and performance in the realm of API management.
 
-### DGate Modules
+### DGate Module Functions
 
 DGate modules are scripts that are run at runtime. Modules can be built in TypeScript or JavaScript. Modules can be used to modify the request or response or handle the request/response in certain functions depending on what variables are exposed.
 
 There are currently 5 module functions:
-- `fetchUpstream` - this module is used to select an upstream service URL
-- `requestHandler` - this module is used to handle the request, instead of using a service.
-- `errorHandler` - this module is used to handle errors (network, timeouts, etc.).
-- `responseModifier` - this module is used to modify the request before it is sent to the upstream service (or before it is handled by the requestHandler).
-- `requestModifier` - this module is used to modify the response before it is sent to the client.
+- [`fetchUpstream`](/docs/resources/modules#fetchUpstream) - this module is used to select an upstream service URL
+- [`requestHandler`](/docs/resources/modules#requestHandler) - this module is used to handle the request, instead of using a service.
+- [`errorHandler`](/docs/resources/modules#errorHandler) - this module is used to handle errors (network, timeouts, etc.).
+- [`responseModifier`](/docs/resources/modules#responseModifier) - this module is used to modify the request before it is sent to the upstream service (or before it is handled by the requestHandler).
+- [`requestModifier`](/docs/resources/modules#requestModifier) - this module is used to modify the response before it is sent to the client.
 
 ```mermaid
 sequenceDiagram
@@ -69,21 +71,3 @@ sequenceDiagram
     G--x+S2: /call2
     Note right of G: *errorHandler()
 ```
-
-## Resource Types
-
-Namespaces - provide a way to group resources together
-
-Routes - provide a way to match a request to a service or module handler
-
-Services - provide a way to represent an upstream service
-
-Modules - provide a way to customize the request/response data being sent upstream and downstream.
-
-Domains - provide a way to match a request to a namespace
-
-Collections - provide a way to store arbitrary data based on a JSON schema
-
-Documents - provide a way to store arbitrary data in a collection based on a schema
-
-Secrets - provide a way to store sensitive data in a secure way

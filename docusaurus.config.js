@@ -1,9 +1,7 @@
-const sidebars = require('./sidebars');
-
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'DGate API Gateway',
-  tagline: 'API Gateway for the modern web',
+  tagline: 'Open Source Function Native API Gateway!',
   url: 'https://dgate.io',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -11,8 +9,6 @@ module.exports = {
   organizationName: 'dgate-io',
   projectName: 'dgate',
   themes: ['@docusaurus/theme-mermaid'],
-  // In order for Mermaid code blocks in Markdown to work,
-  // you also need to enable the Remark plugin with this option
   markdown: {
     mermaid: true,
   },
@@ -22,33 +18,18 @@ module.exports = {
         hideable: true,
       }
     },
+    colorMode: {
+      defaultMode: 'dark',
+      respectPrefersColorScheme: true,
+    },
     prism: {
       mermaid: true,
-      additionalLanguages: ['javascript', 'typescript', 'bash', 'yaml'],
-      magicComments: [
-        {
-          className: 'theme-code-block-highlighted-line',
-          line: 'highlight-next-line',
-          block: {start: 'highlight-start', end: 'highlight-end'},
-        },
-        {
-          className: 'code-block-error-message',
-          line: 'highlight-next-line-error-message',
-        },
-        {
-          className: 'code-block-info-line',
-          line: 'highlight-next-line-info',
-        },
-        {
-          className: 'code-block-underline',
-          line: 'underline-next-line',
-        },
-      ],
+      additionalLanguages: ['javascript', 'typescript', 'bash', 'yaml', 'json'],
     },
     algolia: {
-      appId: 'Z1JMW5L4D6',
-      apiKey: "3134ba5a461dcae8adb8969d6ca2cff4",
-      indexName: "dgate-io-docs",
+      appId: '7ZF6OL4UBL',
+      apiKey: "c7c19d3cedc03f92311ee53a9303cd23",
+      indexName: "dgate",
     },
     navbar: {
       title: 'DGate',
@@ -66,7 +47,7 @@ module.exports = {
           position: 'right',
         },
         {
-          to: '/docs/getting-started/dgate-concepts',
+          to: '/docs/intro',
           label: 'Documentation',
           position: 'left',
         },
@@ -87,7 +68,7 @@ module.exports = {
           to: "https://pkg.go.dev/dgate.io/dgate",
         },
       ],
-      copyright: ` Copyright © ${new Date().getFullYear()} | bubbajoe.dev`,
+      copyright: ` Copyright © ${new Date().getFullYear()} | DGate.io`,
     },
     announcementBar: {
       id: 'ab-source-link-1', // Increment on change
@@ -96,17 +77,6 @@ module.exports = {
     },
   },
   plugins: [
-    // [
-    //   '@docusaurus/plugin-client-redirects',
-    //   {
-    //     redirects: [
-    //       {
-    //         to: '/getting-started',
-    //         from: '/docs/getting-started/setting-up',
-    //       },
-    //     ],
-    //   },
-    // ],
     [
       '@docusaurus/plugin-ideal-image',
       {

@@ -1,13 +1,12 @@
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   overflow: hidden;
-  top: 0;
+  top: calc(50% - 10vh);
   left: 0;
   position: absolute;
-  z-index: -1;
   background-color: transparent;
 }
 
@@ -40,7 +39,6 @@
 }
 
 .jumbo {
-  border: 2px dotted #46deff;
   --stripes: repeating-linear-gradient(100deg,
       #fff 0%,
       #fff 7%,
@@ -48,11 +46,11 @@
       transparent 12%,
       #fff 16%);
   --stripesDark: repeating-linear-gradient(100deg,
-      #000 0%,
-      #000 7%,
+      #000000bb 0%,
+      #000000bb 7%,
       transparent 10%,
       transparent 12%,
-      #000 16%);
+      #000000bb 16%);
   --rainbow: repeating-linear-gradient(100deg,
       #fa6060 10%,
       #f97979 15%,
@@ -66,9 +64,9 @@
       #e72e2e 25%,
       #c02121 30%);
   background-image: var(--stripes), var(--rainbow);
-  background-size: calc(200vh + 300em);
+  background-size: 500vw, 300vh;
   background-position: 50% 50%, 50% 50%;
-  filter: blur(10px) invert(100%);
+  filter: blur(5px) invert(100%);
   /* mask-image: radial-gradient(
     ellipse at 100% 0%,
     black 40%,
@@ -81,7 +79,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  filter: blur(20px);
   background-image: var(--stripes), var(--rainbow);
   background-size: 200%, 100%;
   animation: jumbo 60s linear infinite;
@@ -90,9 +87,8 @@
 }
 
 html[data-theme='dark'] .jumbo {
-  border: 2px dotted #ff4646;
   background-image: var(--stripesDark), var(--rainbowDark);
-  filter: blur(7px) opacity(50%);
+  filter: blur(7px);
 }
 
 html[data-theme='dark'] .jumbo::after {

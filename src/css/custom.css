@@ -28,7 +28,7 @@ html[data-theme='dark'] .footer__title {
 
 
 html[data-theme='dark'] .footer {
-  background-image: linear-gradient(rgba(39, 39, 41, 0), rgba(39, 39, 40, 0.51) 32.77%, #272729);
+  background-image: linear-gradient(rgba(39, 39, 41, 0), rgba(39, 39, 40, 0.89) 24.37%, #272729);
   background-color: transparent;
 }
 
@@ -331,4 +331,20 @@ div[class^='announcementBar_']  a.cta:hover {
 
 html[data-theme='dark'] #__docusaurus {
   background-image: url('/img/dgate_bg.svg');
+}
+
+.box-progress:before {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  max-width: 6.5em;
+  white-space: nowrap;
+  color: red;
+  animation: loading 5s linear infinite alternate both;
+}
+
+@keyframes loading {
+  0% {
+    max-width: 0;
+  }
 }

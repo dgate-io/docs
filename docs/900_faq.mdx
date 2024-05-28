@@ -1,0 +1,25 @@
+---
+id: faq
+title: FAQ
+---
+
+### How can I get support for DGate?
+
+You can get support for DGate by:
+- Creating issues or pull requests on the [DGate repository](https://github.com/dgate-io/dgate)
+
+
+### How can I use external packages in DGate modules?
+
+We do not currently support external packages in DGate modules.
+- All modules and package dependencies must be included in the module's payload.
+- We are working on a solution to support external packages in the future.
+
+### Why is DGate request latency high?
+
+DGate is a proxy server that sits between a client and the upstream service(s).
+The latency could be higher than expected due to the following reasons:
+- Network latency between the client and DGate
+- Network latency between DGate and the upstream service
+- DGate Transport Settings (which can limit the number of connections, etc.)
+- DGate Modules (having unoptimized or too many modules can increase latency)
