@@ -29,7 +29,8 @@ module.exports = {
     algolia: {
       appId: '7ZF6OL4UBL',
       apiKey: "c7c19d3cedc03f92311ee53a9303cd23",
-      indexName: "dgate",
+      indexName: "dgate-io-crawler",
+      contextualSearch: true,
     },
     navbar: {
       title: 'DGate',
