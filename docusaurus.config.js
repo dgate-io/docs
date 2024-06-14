@@ -48,8 +48,23 @@ module.exports = {
           position: 'right',
         },
         {
+          href: 'https://discord.gg/7b8V2Rn',
+          className: 'header-discord-link',
+          position: 'right',
+        },
+        {
           to: '/docs/intro',
           label: 'Documentation',
+          position: 'left',
+        },
+        {
+          to: '/docs/getting-started/dgate-server#installation',
+          label: 'Download',
+          position: 'left',
+        },
+        {
+          to: 'https://github.com/dgate-io/dgate',
+          label: 'Source Code',
           position: 'left',
         },
       ],

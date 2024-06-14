@@ -16,8 +16,8 @@ interface Release {
     name:             string;
     draft:            boolean;
     prerelease:       boolean;
-    created_at:       Date;
-    published_at:     Date;
+    created_at:       string;
+    published_at:     string;
     assets?:           ReleaseAsset[];
     tarball_url:      string;
     zipball_url:      string;
@@ -32,8 +32,8 @@ interface ReleaseAsset {
     state:                string;
     size:                 number;
     download_count:       number;
-    created_at:           Date;
-    updated_at:           Date;
+    created_at:           string;
+    updated_at:           string;
     browser_download_url: string;
 }
 
@@ -63,7 +63,7 @@ function GithubReleaseFetcher({ children }: PropsWithChildren<Props>) {
     return (release) ? (
         <div>
             {children}
-            <h3 title={release.name}>Latest release: {release.tag_name}</h3>
+            <h3 title={release.name}>Latest release: {release.tag_name} (<span title={release.published_at}>{prettyTime(release.published_at)}</span>)</h3>
             <ul>
                 {release?.assets?.filter(asset => asset.name.startsWith("dgate_")).map((asset) => (
                     <li key={asset.id}>
@@ -73,6 +73,26 @@ function GithubReleaseFetcher({ children }: PropsWithChildren<Props>) {
             </ul>
         </div>
     ) : <h1 className="box-progress" data-text="Loading">Loading...</h1>;
+}
+
+function prettyTime(time: string) {
+    var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
+      diff = (((new Date()).getTime() - date.getTime()) / 1000),
+      day_diff = Math.floor(diff / 86400);
+    
+    // return date for anything greater than a day
+    if ( isNaN(day_diff) || day_diff < 0 || day_diff > 0 )
+      return date.getDate() + " " + date.toDateString().split(" ")[1];
+
+    return day_diff == 0 && (
+        diff < 60 && "just now" ||
+        diff < 120 && "1 minute ago" ||
+        diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+        diff < 7200 && "1 hour ago" ||
+        diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+      day_diff == 1 && "Yesterday" ||
+      day_diff < 7 && day_diff + " days ago" ||
+      day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
 }
 
 export default GithubReleaseFetcher

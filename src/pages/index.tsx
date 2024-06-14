@@ -20,6 +20,7 @@ import { Button,
   Text,
   Divider,
   Wrap,
+  ColorModeProvider,
 } from '@chakra-ui/react';
 import { useColorMode as useDocColor } from '@docusaurus/theme-common';
 
@@ -80,14 +81,6 @@ const roadmap = [
     description: 'DGate plans to offer support for canary deployments to allow users to test new features in production with a subset of users.',
   },
   {
-    title: 'AI Gateway',
-    description: 'DGate plans to offer support for proxying requests to LLM services, seamlessly using any service or model.', 
-  },
-  {
-    title: 'Package Registry',
-    description: 'DGate plans to offer package registry support to allow users to share and reuse existing packages.',
-  },
-  {
     title: 'Admin Console',
     description: 'DGate plans to offer an admin console to allow users to manage resources from a web interface. The web interface will also offer monitoring and debugging tools.',
   },
@@ -97,10 +90,12 @@ export default function HomePage(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <ChakraBaseProvider theme={customTheme}>
-      <Layout title={siteConfig.title}>
-        <Analytics />
-        <Hero siteConfig={siteConfig} />
-      </Layout>
+      <ColorModeProvider>
+        <Layout title={siteConfig.title}>
+          <Analytics />
+          <Hero siteConfig={siteConfig} />
+        </Layout>
+      </ColorModeProvider>
     </ChakraBaseProvider>
   );
 }
@@ -125,12 +120,12 @@ function Hero({ siteConfig }) {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <Center>
-        <Flex minW="300px" justify="space-evenly">
-          <Button as={Link} variant={"outline"} href='/docs/getting-started' size='lg'>
+        <Flex minW="360px" justify="space-evenly">
+          <Button as={Link} variant='ghost' href='/docs/getting-started/dgate-server' size='lg'>
             Get Started
           </Button>
           <Spacer />
-          <Button variant="ghost" left={"auto"} size='lg'>
+          <Button as={Link} href='https://github.com/dgate-io/dgate' variant='outline' left={"auto"} size='lg'>
             ⭐&nbsp; on Github
           </Button>
         </Flex>

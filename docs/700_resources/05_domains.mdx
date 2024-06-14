@@ -31,11 +31,7 @@ The namespace that the domain belongs to.
 
 ### `patterns!`
 
-Paths that the domain should match. The path can contain wildcards (`*`) to match multiple paths.
-
-Pattern matching is also supported. If the path is `/route/{id}`, it will match `/route/abc123`, etc. The route parameters will be available for use in modules by using this (function)[TODO-LINK]
-
-These can also be extended using regular expressions, if you only want to catch specific patterns. If the path is `/route/{id:[0-9]+}`, it will match `/route/1`, `/route/123`, etc.
+Pattern that the domain should match. Read more about [domain patterns](/docs/concepts/domain_patterns).
 
 ### `priority`
 
