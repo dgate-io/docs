@@ -12,6 +12,50 @@ module.exports = {
   markdown: {
     mermaid: true,
   },
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image',
+        content: '/img/dgate.png',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:title',
+        content: 'DGate API Gateway',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:url',
+        content: 'https://dgate.io',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:description',
+        content: 'DGate is an open-source, function-native API Gateway that enables you to create, secure, and manage APIs for your applications!',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'og:keywords',
+        content: 'api gateway, open source, serverless, function-native, dgate, dgate.io',
+      },
+    }
+  ],
   themeConfig: {
     docs: {
       sidebar: {
