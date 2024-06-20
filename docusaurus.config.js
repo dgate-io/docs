@@ -17,7 +17,7 @@ module.exports = {
       tagName: 'meta',
       attributes: {
         property: 'og:image',
-        content: '/img/dgate.png',
+        content: '/img/dgate2.png',
       },
     },
     {
