@@ -41,19 +41,16 @@ tags: ["test"]
 storage:
   type: file
   dir: .dgate/data/
-test_server:
-  port: 8888
-  host: 0.0.0.0
 proxy:
   port: ${PORT:-80}
   host: 0.0.0.0
-  enable_console_logger: true
   global_headers:
     X-Test-Header: ${TEST_HEADER:-test}
 admin:
   port: 9080
   host: 0.0.0.0
   allow_list:
+    - "192.168.13.37"
     - "127.0.0.1/8"
     - "::1"
 ```
@@ -133,11 +130,12 @@ admin:
 - `admin.tls`
   - Type: [DGateTLSConfig](#DGateTLSConfig)
 
-{/* - `admin.auth_method`
+- `admin.auth_method`
   - Type: `"basic" | "key" | "jwt"`
 - `admin.basic_auth`
   - Type: [DGateBasicAuthConfig](#DGateBasicAuthConfig)
-- `admin.key_auth`
+
+{/*- `admin.key_auth`
   - Type: [DGateKeyAuthConfig](#DGateKeyAuthConfig)
 - `admin.jwt_auth`
   - Type: [DGateJWTAuthConfig](#DGateJWTAuthConfig) */}
@@ -226,40 +224,40 @@ admin:
   - Type: `[]DGateUserCredentials`
 
 ### DGateUserCredentials \{#DGateUserCredentials}
-- `basic_auth.users.username`
+- `basic_auth.users[i].username`
   - Type: `string`
-- `basic_auth.users.password`
+- `basic_auth.users[i].password`
   - Type: `string`
 
-### DGateKeyAuthConfig \{#DGateKeyAuthConfig}
+{/* ### DGateKeyAuthConfig \{#DGateKeyAuthConfig}
 - `key_auth.query_param_name`
   - Type: `string`
 - `key_auth.header_name`
   - Type: `string`
 - `key_auth.keys`
-  - Type: `[]string`
+  - Type: `[]string` */}
 
-### DGateJWTAuthConfig \{#DGateJWTAuthConfig}
+{/* ### DGateJWTAuthConfig \{#DGateJWTAuthConfig}
 - `jwt_auth.header_name`
   - Type: `string`
 - `jwt_auth.algorithm`
   - Type: `string`
 - `jwt_auth.signature_config`
-  - Type: `map[string]any`
+  - Type: `map[string]any` */}
 
-### AsymmetricSignatureConfig \{#AsymmetricSignatureConfig}
+{/* ### AsymmetricSignatureConfig \{#AsymmetricSignatureConfig}
 - `asymmetric_signature.algorithm`
   - Type: `string`
 - `asymmetric_signature.public_key`
   - Type: `string`
 - `asymmetric_signature.public_key_file`
-  - Type: `string`
+  - Type: `string` */}
 
-### SymmetricSignatureConfig \{#SymmetricSignatureConfig}
+{/* ### SymmetricSignatureConfig \{#SymmetricSignatureConfig}
 - `symmetric_signature.algorithm`
   - Type: `string`
 - `symmetric_signature.key`
-  - Type: `string`
+  - Type: `string` */}
 
 ### DGateTLSConfig \{#DGateTLSConfig}
 - `tls.port`

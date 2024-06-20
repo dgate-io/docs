@@ -50,39 +50,31 @@ const customTheme = extendTheme({
 
 const features = [
   {
-    title: 'Manage',
-    description: 'DGate offers tools to allow users to manage routes, modules, and other resources from the CLI. The CLI also exposes advanced features that allow the user to manage the entire lifecycle of the resources.',
+    title: 'Manage using CLI',
+    description: 'DGate offers a CLI tool to allow users to manage resources using the Admin API. Monitoring, debugging, verifying changes, and deploying resources can be done using the CLI tool.',
   },
   {
-    title: 'Monitor',
-    description: 'DGate exposes metrics and logs that allow the users to user their favorite monitoring tools to monitor the health of the gateway, resource configurations, and even function execution metrics.',
-  },
-  {
-    title: 'Maintain',
-    description: 'Maintaining resources is very simple and easy because results are avaiable in real-time. Additionally, when issues happen debugging and bug fixing is made easy with the help of the logs and metrics.', 
-  },
-  {
-    title: 'Replication',
+    title: 'Distributed Replication',
     description: 'DGate supports replication of resources across multiple instances using the Raft Consensus Algorithm. This allows the user to scale the gateway horizontally and ensure high availability.',
   },
   {
-    title: 'JS/TS Functions',
+    title: 'Typescript Functions',
     description: 'Modules support JavaScript and TypeScript functions. This allows the user to write custom functions to manipulate the request and response objects.',
   },
 ];
 
 const roadmap = [
   {
-    title: 'Authentication',
-    description: 'DGate plans to offer support for widely used authentication protocols like OAuth 2.0, OIDC and SAML.',
+    title: 'WAF',
+    description: 'DGate plans to offer support for Web Application Firewall (WAF) to protect resources from common web attacks Users will be able to update/change these in real-time with no updates.',
   },
   {
-    title: 'Canary',
+    title: 'Resource Canary',
     description: 'DGate plans to offer support for canary deployments to allow users to test new features in production with a subset of users.',
   },
   {
-    title: 'Admin Console',
-    description: 'DGate plans to offer an admin console to allow users to manage resources from a web interface. The web interface will also offer monitoring and debugging tools.',
+    title: 'Admin Dashboard',
+    description: 'DGate plans to offer an admin dashboard to allow users to manage resources from a web interface. The web interface will also offer monitoring and module debugging tools.',
   },
 ];
 

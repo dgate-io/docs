@@ -47,11 +47,11 @@ module.exports = {
           className: 'header-github-link',
           position: 'right',
         },
-        {
-          href: 'https://discord.gg/sZs2NVEgRt',
-          className: 'header-discord-link',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://discord.gg/sZs2NVEgRt',
+        //   className: 'header-discord-link',
+        //   position: 'right',
+        // },
         {
           to: '/docs/intro',
           label: 'Documentation',
@@ -73,15 +73,19 @@ module.exports = {
       links: [
         {
           label: "Getting Started",
-          to: "/",
+          to: "/docs/getting-started",
         },
         {
-          label: "CLI Reference",
-          to: "/",
+          label: "CLI",
+          to: "/docs/getting-started/dgate-cli",
         },
         {
-          label: "GoDoc",
-          to: "https://pkg.go.dev/dgate.io/dgate",
+          label: "Releases",
+          to: "https://github.com/dgate-io/dgate/releases",
+        },
+        {
+          label: "Containers",
+          to: "https://github.com/dgate-io/dgate/pkgs/container/dgate",
         },
       ],
       copyright: ` Copyright © ${new Date().getFullYear()} | DGate.io`,
